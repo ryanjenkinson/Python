@@ -234,7 +234,7 @@ def trailing_punctuation(string):
         if len(endstring) > 0:
             return string[:-len(endstring)],endstring
         else:
-            return string, endstring
+            return string, endstring[::-1] # Flip endstring back round again
 
 def spellcheck(string):
     ''' One 'Pure Python' way to do this is via a Norvig spellcheck of the string 
@@ -296,3 +296,6 @@ if __name__ == '__main__':
     print(out_text)
     out_text = process_text(text,pronounciation=False,punctuation=False,spellchecking=True)
     print(out_text)
+
+    print(trailing_punctuation('Hello.!'))
+
